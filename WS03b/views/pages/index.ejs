@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../../partials/head'); %>
+  </head>
+
+  <body>
+    <header>
+      <!-- Exercise 3: Using Partials in EJS -->
+      <%- include('../../partials/header'); %>
+    </header>
+
+    <main class="py-5">
+      <div class="container">
+        <div class="text-center mb-4">
+          <!-- Exercise 2: Passing Data to EJS Templates -->
+          <h1 class="display-5 fw-bold"><%= message %></h1>
+        </div>
+
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <!-- Exercise 4: Conditional Rendering in EJS -->
+            <% if (showMessage) { %>
+            <h2 class="h4 mb-3">List of Users</h2>
+            <p class="alert alert-warning"><%= hiddenMessage %></p>
+            <% } else { %>
+            <h2 class="h4 mb-3">List of Users</h2>
+            <% } %>
+
+            <!-- Exercise 5: Looping in EJS -->
+            <ul class="list-group">
+              <% users.forEach(function(user) { %>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <strong><%= user.name %></strong> <br />
+                  <small class="text-muted"><%= user.email %></small>
+                </div>
+                <span class="badge bg-primary rounded-pill text-capitalize"
+                  ><%= user.role %></span
+                >
+              </li>
+              <% }); %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Exercise 3: Using Partials in EJS -->
+    <footer class="mt-5"><%- include('../../partials/footer'); %></footer>
+  </body>
+</html>
